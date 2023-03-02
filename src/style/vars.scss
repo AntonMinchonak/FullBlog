@@ -1,0 +1,24 @@
+$blue:#1EABE8;
+$grey: rgb(177, 177, 177);
+$greyL: rgb(232, 232, 232);
+$black: rgb(29, 37, 41);
+$red: rgb(207, 80, 30);
+
+@mixin block() {
+   background-color: white;
+   border-radius: 15px;
+   display: flex;
+   flex-direction: column;
+   // overflow: hidden;
+   padding: 20px;
+   gap: 20px;
+   // min-width: 200px;
+   flex: 1 1 ;
+}
+
+@mixin list() {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   flex: 1 1;
+}

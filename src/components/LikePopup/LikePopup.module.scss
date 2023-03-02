@@ -1,0 +1,25 @@
+@import 'src/style/vars.scss';
+
+@mixin popup() {
+  background-color: rgb(29, 37, 41, 0.5);
+  padding: 7px;
+  border-radius: 150px;
+  max-height: 45px;
+  position: absolute;
+  top: -65px;
+  left: 20px;
+  display: flex;
+  gap: 5px;
+  max-width: 360px;
+}
+.popup {
+  @include popup();
+  
+
+  img {
+      border-radius: 1000px;
+      height:45px;
+    }
+ 
+}
+

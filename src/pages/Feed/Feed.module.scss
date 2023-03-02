@@ -1,0 +1,15 @@
+@import 'src/style/vars.scss';
+
+.feed {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    flex: 1 1;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1 1;
+}

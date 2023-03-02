@@ -1,0 +1,22 @@
+@import "src/style/vars.scss";
+
+@mixin liked() {
+  color: $red;
+}
+.liked {
+  @include liked()
+}
+
+.like {
+  color: $grey;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  max-width: fit-content;
+  
+  &:hover {
+    @include liked();
+    cursor: pointer;
+  }
+}

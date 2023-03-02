@@ -1,0 +1,7 @@
+@import 'src/style/vars.scss';
+
+.userList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(285px, auto));
+  gap: 10px;
+}

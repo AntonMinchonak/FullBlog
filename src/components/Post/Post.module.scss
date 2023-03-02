@@ -1,0 +1,85 @@
+@import '/src/style/vars.scss';
+
+.post {
+    @include block();
+    border: 1px solid $greyL;
+}
+
+.image {
+    color: white;
+    height: 320px;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    display:flex;
+    align-items: center;
+    border-radius: 15px;
+    background-size: cover;
+}
+
+.title {
+    font-weight: 600;
+    line-height: 1.4em;
+    font-size: 32px;
+    color: $black;
+}
+
+ .tags {
+    display: flex;
+    gap: 10px;
+     color: $grey;
+     font-size: 12px;
+
+     div {
+        border: 1px solid $grey;
+        border-radius: 20px;
+        padding: 1px 7px 2px;
+        line-height: 18px;
+     }
+ }
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+ 
+.views {
+    color: $grey;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.text {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    max-height: 100px;
+    overflow: hidden;
+}
+
+.reactions {
+    display: flex;
+    gap: 20px;
+}
+
+.liked {
+    color: $red;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.controlPost {
+    display: flex;
+    gap:10px;
+    align-items: center;
+    align-content: center;
+}
+

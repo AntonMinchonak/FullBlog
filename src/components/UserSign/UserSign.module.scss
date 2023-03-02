@@ -1,0 +1,22 @@
+@import 'src/style/vars.scss';
+
+.author {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  &__image {
+    width: 48px;
+    border-radius: 50%;
+  }
+
+  &__name {
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  &__date {
+    color: $grey;
+  }
+
+}

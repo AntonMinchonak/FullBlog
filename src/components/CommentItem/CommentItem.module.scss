@@ -1,0 +1,33 @@
+@import 'src/style/vars.scss';
+
+.comment {
+  @include block();
+  padding: 20px;
+  border-bottom: 1px solid $greyL;
+  border-radius: 0;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.image {
+  color: white;
+  height: 320px;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  background-size: cover;
+}
+
+.controlPost {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  align-content: center;
+}

@@ -1,0 +1,18 @@
+@import 'src/style/vars.scss';
+
+.panel {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  align-items: center;
+
+  input {
+    width: 100%;
+    flex-grow: 1;
+  }
+}
+
+.clear {
+  color: $grey;
+  cursor:pointer;
+}

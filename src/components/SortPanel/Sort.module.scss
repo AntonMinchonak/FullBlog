@@ -1,0 +1,9 @@
+@import "src/style/vars.scss";
+
+.sortPanel {
+  // @include block();
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  background-color: white;
+}

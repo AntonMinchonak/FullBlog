@@ -1,0 +1,21 @@
+@import 'src/style/vars.scss';
+
+.authform {
+  display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  margin: 0px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}

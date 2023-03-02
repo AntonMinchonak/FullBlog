@@ -1,24 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom'
+import Feed from './pages/Feed';
+import Detail from './pages/Detail';
+import './style/styles.scss'
+import Header from './components/Header';
+// import { AppDispatch } from './redux/store';
+// import { useDispatch } from 'react-redux';
+import NotFound from './pages/NotFound';
+import Navigation from './components/Navigation';
+import Auth from './pages/Auth';
+import Profile from './pages/Profile';
+import { useAppDispatch } from './redux/store';
+import { fetchMe } from './redux/slices/userSlice';
+import UserSearch from './pages/UserSearch';
 
 function App() {
+  const dispatch = useAppDispatch()
+  React.useEffect(() => {
+    dispatch(fetchMe())  
+  }, [])
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div className="page-content">
+        <Navigation></Navigation>
+        <Routes>
+          <Route path='/' element={<Feed />}></Route>
+          <Route path='*' element={<NotFound />}></Route>
+          <Route path='/detail/:id' element={<Detail />}></Route>
+          <Route path='/auth/:type' element={<Auth />}></Route>
+          <Route path='/profile/:id' element={<Profile />}></Route>
+          <Route path='/users' element={<UserSearch />}></Route>
+        </Routes>
+      </div>
     </div>
   );
 }

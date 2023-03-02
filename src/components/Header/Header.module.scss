@@ -1,0 +1,25 @@
+@import "/src/style/vars.scss";
+
+.header {
+    background-color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.account {
+    display: flex;   
+    gap: 10px;
+    font-weight: 600;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: $blue;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.3;
+}

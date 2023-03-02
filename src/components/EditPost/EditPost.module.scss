@@ -1,0 +1,8 @@
+.editImg {
+  width: 15px;
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+  &:hover {
+    transform: rotate(90deg);
+  }
+}
