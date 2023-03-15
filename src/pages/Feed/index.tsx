@@ -14,7 +14,9 @@ export default function Feed() {
     <div className={css.feed}>
       <div className='list'>
         {me && <CreatePost></CreatePost>}
-        <PostList></PostList>
+        <div className="block">
+          <PostList></PostList>
+        </div>
       </div>
       <Sidebar></Sidebar>
     </div>

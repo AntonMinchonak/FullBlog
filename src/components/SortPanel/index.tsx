@@ -7,6 +7,7 @@ export default function SortPanel() {
   const dispatch = useAppDispatch()
 
   function onSort(type: 'time' | 'views' | 'likes') {
+    
     dispatch(sortPosts({sort:type}))
     // dispatch(fetchPosts())
   }

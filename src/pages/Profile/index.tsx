@@ -32,12 +32,14 @@ export default function Profile() {
 
   return (
     <>
-      <div className='list'>
-        <UserCard info={user}></UserCard> 
-        {me?._id === id && <CreatePost id={user._id} />}
-        <PostList user={user}></PostList>
-      </div> 
+      <div className="list">
+        <UserCard info={user}></UserCard>
+          {me?._id === id && <CreatePost id={user._id} />}
+        <div className="block">
+          <PostList user={user}></PostList>
+        </div>
+      </div>
       <Sidebar></Sidebar>
     </>
-  )
+  );
 }

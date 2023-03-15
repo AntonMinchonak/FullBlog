@@ -38,8 +38,9 @@ export const fetchPosts = createAsyncThunk<PostType[],{user?:string, userId?:str
     const user = prop?.user ?? ''
     const search = prop?.search ?? ''
     const userId = !user.length&&prop?.userId ? prop?.userId: ''
-    
-    const response = await fetch(`http://localhost:4444/posts/?id=${user}&sort=${sort}&userId=${userId}&search=${search}`);
+    const page = ~~(thunkAPI.getState().posts.posts.length / 10)
+    console.log(thunkAPI.getState().posts.posts.length);
+    const response = await fetch(`http://localhost:4444/posts/?id=${user}&sort=${sort}&userId=${userId}&search=${search}&page=${page}`);
     return await response.json() 
   })
 
@@ -173,9 +174,16 @@ export const postSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchPosts.fulfilled, (state, action) => {
       // postSlice.caseReducers.clearPosts(initialState)
-      state.posts = action.payload
+      if (!state.posts.length) state.posts = action.payload
+      else {
+        const newSet = new Set()
+        state.posts.forEach(e => newSet.add(e._id))
+        const addPosts = action.payload.filter(e => !newSet.has(e._id))
+        state.posts = [...state.posts,...addPosts]
+      }
 
     })
+    
     builder.addCase(fetchPost.fulfilled, (state, action) => {
       state.post = action.payload;
     })

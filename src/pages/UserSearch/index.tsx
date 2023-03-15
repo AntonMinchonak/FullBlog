@@ -19,7 +19,9 @@ export default function UserSearch() {
       <div className="block">
         <h1>Search Users</h1>
         <SearchPanel type={"users"}></SearchPanel>
-        <div className={css.userList}>{users.length ? users.map(e => <UserCard info={e} key={e._id}></UserCard>) : <div className="block">Loading...</div>}</div>
+        <div className={css.userList}>
+          {users.length ? users.map(e => <UserCard info={e} key={e._id}></UserCard>) : <div className="block">Loading...</div>}
+        </div>
       </div>
     </>
   );

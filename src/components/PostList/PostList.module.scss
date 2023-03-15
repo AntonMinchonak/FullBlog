@@ -1,6 +1,6 @@
 @import 'src/style/vars.scss';
 
 .postList {
-  @include block();
+  // @include block();
   @include list();
 }

@@ -52,7 +52,7 @@ const schema = yup
   };
 
   return (
-    <div className={css.authform + " block"}>
+    <div className={"block " +css.authform}>
       <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={css.top}>
           <label htmlFor="">
