@@ -4,7 +4,7 @@ import css from "./Sidebar.module.scss"
 
 export default function index() {
   return (
-    <div className="block--small">
+    <div className={"block--small "+css.sidebar }>
       <SortPanel></SortPanel>
     </div>
   )

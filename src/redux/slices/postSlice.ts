@@ -39,7 +39,6 @@ export const fetchPosts = createAsyncThunk<PostType[],{user?:string, userId?:str
     const search = prop?.search ?? ''
     const userId = !user.length&&prop?.userId ? prop?.userId: ''
     const page = ~~(thunkAPI.getState().posts.posts.length / 10)
-    console.log(thunkAPI.getState().posts.posts.length);
     const response = await fetch(`http://localhost:4444/posts/?id=${user}&sort=${sort}&userId=${userId}&search=${search}&page=${page}`);
     return await response.json() 
   })

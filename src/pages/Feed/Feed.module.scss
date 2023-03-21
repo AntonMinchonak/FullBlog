@@ -13,3 +13,9 @@
     gap: 20px;
     flex: 1 1;
 }
+
+@media screen and (max-width: 1000px) {
+    .feed {
+        flex-wrap: wrap;
+    }
+}

@@ -1,1 +1,8 @@
 @import 'src/style/vars.scss';
+
+@media screen and (max-width: 1000px) {
+  .sidebar {
+    z-index: 0;
+    order: -1;
+  }
+}

@@ -6,7 +6,7 @@ import css from "./CreatePost.module.scss";
 import BigError from "../../UI/Error/BigError";
 import LittleError from "../../UI/Error/LittleError";
 import { useAppDispatch } from "../../redux/store";
-import { createPost, fetchPosts } from "../../redux/slices/postSlice";
+import { clearPosts, createPost, fetchPosts } from "../../redux/slices/postSlice";
 import FileInput from "../../UI/Input/FileInput";
 import DeleteImg from "../../UI/Buttons/DeleteImg";
 
@@ -43,6 +43,7 @@ const schema = yup
     const res = await dispatch(createPost(data));
     const status = res.payload;
     if (status) {
+      dispatch(clearPosts());
       dispatch(fetchPosts({ user: id ? "id=" + id : "" }));
 
       setResponseStatus(true);

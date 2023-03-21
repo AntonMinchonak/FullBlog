@@ -14,9 +14,9 @@ export default function Like({ userLikes, me, postId , entity} : {postId: string
   const [hovered, setHovered] = React.useState(false)
   let abort: ReturnType<typeof setTimeout> ;
   let showTime: ReturnType<typeof setTimeout> ;
-  const [users, setUserLikes] = React.useState(userLikes)
+  const [users, setUserLikes] = React.useState(userLikes ?? [])
   
-  const isLiked = !me ? false : userLikes.find(e => e._id === me._id) !== undefined;
+  const isLiked = !me ? false : userLikes ? userLikes.find(e => e._id === me._id) !== undefined : false;
   const [liked, setLiked] = React.useState(isLiked)
   
   React.useEffect(() => {
@@ -52,9 +52,10 @@ export default function Like({ userLikes, me, postId , entity} : {postId: string
     abort = setTimeout(()=>setHovered(false) ,1000 )
   }
 
+  
   return (
     <div onMouseEnter={()=>likeToggle(imgRef.current)} onMouseLeave={()=>dislikeToggle(imgRef.current)} className={`${css.like} ${liked ? css.liked : ''}`}>
-       <img onClick={onLike} ref={imgRef} src={liked||hovered ? like : heart} alt="" />{users.length}
+       <img onClick={onLike} ref={imgRef} src={liked||hovered ? like : heart} alt="" />{users?.length}
       {hovered&&users.length ? <LikePopup users={users}></LikePopup> : ''}
     </div>
   )

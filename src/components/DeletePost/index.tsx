@@ -1,5 +1,5 @@
 import React from 'react'
-import { deletePost, fetchComments, fetchPosts, filterComments } from '../../redux/slices/postSlice'
+import { clearPosts, deletePost, fetchComments, fetchPosts, filterComments } from '../../redux/slices/postSlice'
 import { useAppDispatch } from '../../redux/store'
 import { CommentType, PostType } from '../../types'
 import css from "./Delete.module.scss"
@@ -21,7 +21,10 @@ export default function DeletePost({ post, entity, parent}:{post: PostType | Com
       return
     }
     if (isDetail) navigate('/')
-    else dispatch(fetchPosts({user:isProfile? `id=${post.user?._id}`:''}))
+    else {
+      dispatch(clearPosts())
+      dispatch(fetchPosts({ user: isProfile ? `id=${post.user?._id}` : '' }))
+    }
   }
 
   return (

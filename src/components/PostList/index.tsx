@@ -21,6 +21,8 @@ export default function PostList({user}:{user?:userType}) {
     
     return () => {
       dispatch(clearPosts())
+      console.log('JOOOOOOOOOOOOOOOOOOOOPA');
+      
       
     }
   }, [dispatch, sort, user, me])
