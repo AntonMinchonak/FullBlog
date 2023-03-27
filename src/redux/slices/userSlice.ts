@@ -30,8 +30,7 @@ const initialState: UserStateType = {
 export const fetchUsers = createAsyncThunk<userType[], {search:string|null}>('user/fetchUsers',
   async ({search}) => {
     const response = await fetch(`http://localhost:4444/users/?search=${search}`);
-    let suka = await response.json()
-    return suka 
+    return await response.json() 
   })
 
 export const fetchMe = createAsyncThunk<userType>('user/fetchMe',

@@ -16,14 +16,11 @@ export default function PostList({user}:{user?:userType}) {
 
   const dispatch = useAppDispatch()
   React.useEffect(() => {
-    if (me !== null) dispatch(fetchPosts({ user: user?._id, userId: me?._id }));
+  
+    if (me!==null) dispatch(fetchPosts({ user: user?._id, userId: me?._id }));
 
-    
     return () => {
-      dispatch(clearPosts())
-      console.log('JOOOOOOOOOOOOOOOOOOOOPA');
-      
-      
+      dispatch(clearPosts()) 
     }
   }, [dispatch, sort, user, me])
   

@@ -23,7 +23,7 @@ export default function DeletePost({ post, entity, parent}:{post: PostType | Com
     if (isDetail) navigate('/')
     else {
       dispatch(clearPosts())
-      dispatch(fetchPosts({ user: isProfile ? `id=${post.user?._id}` : '' }))
+      dispatch(fetchPosts({ user: isProfile ?post.user?._id : '' }))
     }
   }
 

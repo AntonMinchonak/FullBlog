@@ -4,7 +4,7 @@ import { userType } from '../../types'
 import css from './LikePopup.module.scss'
 
 export default function LikePopup({ users }: { users: userType[] }) {
- 
+
   if (!users) return  <div className={css.popup}></div>
   return (
     <div className={css.popup}>

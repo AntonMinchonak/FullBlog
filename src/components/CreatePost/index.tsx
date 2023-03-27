@@ -44,7 +44,9 @@ const schema = yup
     const status = res.payload;
     if (status) {
       dispatch(clearPosts());
-      dispatch(fetchPosts({ user: id ? "id=" + id : "" }));
+
+      dispatch(fetchPosts({ user: id ? id : "" }));
+      // dispatch(fetchPosts({ user: user?._id, userId: me?._id }));
 
       setResponseStatus(true);
       reset();

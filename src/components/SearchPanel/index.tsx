@@ -1,27 +1,32 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import { fetchUsers } from '../../redux/slices/userSlice'
 import { RootState, useAppDispatch } from '../../redux/store'
 import searchimg from '../../assets/img/searchimg.svg'
 import css from'./SearchPanel.module.scss'
-import { clear } from 'console'
-import { fetchPosts } from '../../redux/slices/postSlice'
+
+import { clearPosts, fetchPosts } from '../../redux/slices/postSlice'
+import { useSelector } from 'react-redux'
 
 export default function SearchPanel({type}:{type:string}) {
   const dispatch = useAppDispatch()
-  const users = useSelector((state: RootState)=> state.user.users)
   const searchInput = React.useRef<HTMLInputElement>(null)
   const [searchValue, setValue] = React.useState('')
+  const [timer, setTimer] = React.useState<any>(null);
+  const me = useSelector((state:RootState)=> state.user.me)
 
-  let fetch:any; 
   function searchInList() {
     if (searchInput.current) setValue(searchInput.current.value);
-    clearTimeout(fetch)
-    fetch = setTimeout(() => {
+    
+    clearTimeout(timer);
+    let timeout = setTimeout(() => {
       const searchValue = searchInput.current?.value ?? null;
-      if (type === 'users') dispatch(fetchUsers({ search: searchValue }));
-      else dispatch(fetchPosts({ search: searchValue }));
+      if (type === "users") dispatch(fetchUsers({ search: searchValue}));
+      else {
+        dispatch(clearPosts())
+        dispatch(fetchPosts({ search: searchValue, userId: me?._id }));
+      }
     }, 700);
+    setTimer(timeout);
   }
 
   function clear() {

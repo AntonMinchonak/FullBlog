@@ -10,6 +10,7 @@ import LittleError from '../../UI/Error/LittleError';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../redux/store';
 import { fetchMe } from '../../redux/slices/userSlice';
+import { clearPosts, fetchPosts } from '../../redux/slices/postSlice';
 
 type Inputs = {
   email: string,
@@ -41,7 +42,7 @@ export default function Login() {
     )
     const msg = await res.json()
     const newStatus = {...responseStatus}
-    if (res.ok) {
+    if (res.ok) {   
       const now = new Date()
       const date = new Date(`${now.getFullYear()}-${now.getMonth()+2}-${now.getDate()}`).toUTCString()
       document.cookie = `token=${msg.token}; path=/; expires=${date}`
@@ -52,6 +53,7 @@ export default function Login() {
     if (msg.message?.includes('UNF: USER NOT FOUND')) newStatus.UNF = true
     if (msg.message?.includes('WPE: WRONG EMAIL OR PASSWORD')) newStatus.WPE = true
     setResponseStatus(newStatus)
+    dispatch(clearPosts()); 
   }
 
   return (

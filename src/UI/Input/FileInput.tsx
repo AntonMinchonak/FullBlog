@@ -13,7 +13,7 @@ export default function FileInput({ fileLink, setLink }: { setLink: any; fileLin
     if (file) {
       const fileType = file.type.split("/")[1];
       const fileName = Date.now() + "." + fileType;
-      await  dispatch(uploadImg({ data: file, fileName }));
+      await dispatch(uploadImg({ data: file, fileName }));
       await setLink("http://localhost:4444/uploads/" + fileName);
     }
   }

@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import BigError from '../../UI/Error/BigError';
 import MidError from '../../UI/Error/MidError';
 import LittleError from '../../UI/Error/LittleError';
+import { clearPosts } from '../../redux/slices/postSlice';
 
 type Inputs = {
   fullName: string,
@@ -77,3 +78,7 @@ export default function AuthForm() {
   );
   
 }
+function dispatch(arg0: { payload: undefined; type: "post/clearPosts"; }) {
+  throw new Error('Function not implemented.');
+}
+

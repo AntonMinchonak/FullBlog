@@ -18,7 +18,8 @@ export default function UserCard({ info }: { info: userType | null }) {
   const fullNameRef = React.useRef<HTMLInputElement>(null);
   const [avatarHover, setHover] = React.useState(false)
   const me = useSelector((state: RootState) => state.user.me)
-
+  const [isLoading, setLoading] = React.useState(true);
+  
  
   React.useEffect(() => {
     setfullName(info?.fullName??'');
@@ -26,7 +27,8 @@ export default function UserCard({ info }: { info: userType | null }) {
   }, [info])
   
   React.useEffect(() => {
-    changeContent();
+    if (!isLoading) changeContent();
+    setLoading(false);
   }, [fileLink]);
   
   function changeContent() {
